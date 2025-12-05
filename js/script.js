@@ -115,20 +115,18 @@ function buildAndShowHomeHTML (categories) {
       // $dc.loadMenuItems('L')
       // Hint: you need to surround the chosen category short name with something before inserting
       // it into the home html snippet.
-        insertProperty(html,"short_name", short_name);
+       
       // var homeHtmlToInsertIntoMainPage = ....
-
-
+      //3: adding ' apostrophes to the short name'
+      var homeHtmlToInsertIntoMainPage =
+           insertProperty(homeHtml, "randomCategoryShortName", "'" + chosenCategoryShortName + "'");
+      
       // TODO: STEP 4: Insert the produced HTML in STEP 3 into the main page
       // Use the existing insertHtml function for that purpose. Look through this code for an example
       // of how to do that.
       // ....
-      var menuItemsViewHtml =
-            buildMenuItemsViewHtml(categoryMenuItems,
-                                   menuItemsTitleHtml,
-                                   menuItemHtml);
-          insertHtml("#main-content", menuItemsViewHtml);
-
+      insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
+    
     },
     false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
 }
